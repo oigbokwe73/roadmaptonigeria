@@ -15,7 +15,7 @@ namespace roadmaptonigeria
     {
         private readonly ILogger _logger;
 
-        public registloginration(ILogger<login> logger)
+        public login(ILogger<login> logger)
         {
             _logger = logger;
         }

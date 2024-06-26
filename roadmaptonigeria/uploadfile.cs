@@ -48,9 +48,10 @@ namespace roadmaptonigeria
         {
             get
             {
-                return new ManagedOrchestratorService(nvc);
+                return new RemoteOrchrestratorService(nvc);
             }
         }
 
     }
-}}
+}
+

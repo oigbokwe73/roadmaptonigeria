@@ -11,18 +11,18 @@ using Microsoft.Azure.Functions.Worker;
 
 namespace roadmaptonigeria
 {
-    public class registration
+    public class search
     {
         private readonly ILogger _logger;
 
-        public registration(ILogger<registration> logger)
+        public search(ILogger<search> logger)
         {
             _logger = logger;
         }
 
         private HttpRequest _req;
         private NameValueCollection nvc = new NameValueCollection();
-        [Function("notifications-preferences")]
+        [Function("search")]
         public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)]
             HttpRequest req)
         {
