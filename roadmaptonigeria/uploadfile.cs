@@ -29,7 +29,6 @@ namespace roadmaptonigeria
             _req = req;
 
             _logger.LogInformation("C# HTTP trigger function processed a request.");
-            //string requestBody = await new StreamReader(_req.Body);
             _req.Headers.ToList().ForEach(item => { nvc.Add(item.Key, item.Value.FirstOrDefault()); });
             var results = orchrestatorService.Run(_req.Body);
             return resultSet(results);
