@@ -25,7 +25,7 @@ namespace roadmaptonigeria
         private HttpRequest _req;
         private NameValueCollection nvc = new NameValueCollection();
         [Function("getdocument")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "fileid")]
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "doc/{fileid}")]
             HttpRequest req, string fileid)
         {
             var input = JsonConvert.SerializeObject(new { fileid });
