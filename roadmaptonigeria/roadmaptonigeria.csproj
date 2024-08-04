@@ -18,7 +18,7 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" Version="5.14.1" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Timer" Version="4.3.0" />
     <PackageReference Include="Xenhey.BPM.Core.Net8" Version="1.0.41" />
-  </ItemGroup>
+  </ItemGroup> 
   <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
