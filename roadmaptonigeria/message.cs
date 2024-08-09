@@ -35,7 +35,11 @@ namespace roadmaptonigeria
             return resultSet(results);
 
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="reponsePayload"></param>
+        /// <returns></returns>
         private ActionResult resultSet(string reponsePayload)
         {
             var returnContent = new ContentResult();
