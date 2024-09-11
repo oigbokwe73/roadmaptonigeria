@@ -34,15 +34,17 @@ namespace roadmaptonigeria
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = input;
             nvc.Add(ApiKeyName, "CE7B884B5A484F29B109AB58FCCFA1DA");
-            var results = orchrestatorService.ReturnFile(requestBody);
+            var results = orchrestatorService.Run(requestBody);
             return resultSet(results);
 
         }
 
-        private ActionResult resultSet(byte[] reponsePayload)
+        private ActionResult resultSet(string reponsePayload)
         {
+            var returnContent = new ContentResult();
             var mediaSelectedtype = nvc.Get("Content-Type");
-            var returnContent = new FileContentResult(reponsePayload, mediaSelectedtype);
+            returnContent.Content = reponsePayload;
+            returnContent.ContentType = mediaSelectedtype;
             return returnContent;
         }
         private IOrchestrationService orchrestatorService

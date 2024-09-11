@@ -33,16 +33,19 @@ namespace roadmaptonigeria
             string ApiKeyName = "x-api-key";
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = input;
+            _req.Headers.ToList().ForEach(item => { nvc.Add(item.Key, item.Value.FirstOrDefault()); });
             nvc.Add(ApiKeyName, "2E191D9D838747DF990C7B8FB8250ECB");
-            var results = orchrestatorService.ReturnFile(requestBody);
+            var results = orchrestatorService.Run(requestBody);
             return resultSet(results);
 
         }
 
-        private ActionResult resultSet(byte[] reponsePayload)
+        private ActionResult resultSet(string reponsePayload)
         {
+            var returnContent = new ContentResult();
             var mediaSelectedtype = nvc.Get("Content-Type");
-            var returnContent = new FileContentResult(reponsePayload, mediaSelectedtype);
+            returnContent.Content = reponsePayload;
+            returnContent.ContentType = mediaSelectedtype;
             return returnContent;
         }
         private IOrchestrationService orchrestatorService
