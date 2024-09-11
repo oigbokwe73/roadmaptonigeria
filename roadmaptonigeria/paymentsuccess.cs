@@ -25,7 +25,7 @@ namespace roadmaptonigeria
         private HttpRequest _req;
         private NameValueCollection nvc = new NameValueCollection();
         [Function("paymentsuccess")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "paymentcancel/{tokenid}")]
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous,"get", Route = "paymentsuccess/{tokenid}")]
             HttpRequest req, string tokenid)
         {
             var input = JsonConvert.SerializeObject(new { tokenid });
