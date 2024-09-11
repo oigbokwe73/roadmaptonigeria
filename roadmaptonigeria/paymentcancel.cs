@@ -33,7 +33,6 @@ namespace roadmaptonigeria
             string ApiKeyName = "x-api-key";
             _logger.LogInformation("C# HTTP trigger function processed a request.");
             string requestBody = input;
-            _req.Headers.ToList().ForEach(item => { nvc.Add(item.Key, item.Value.FirstOrDefault()); });
             nvc.Add(ApiKeyName, "CE7B884B5A484F29B109AB58FCCFA1DA");
             var results = orchrestatorService.ReturnFile(requestBody);
             return resultSet(results);
